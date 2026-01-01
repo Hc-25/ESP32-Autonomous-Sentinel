@@ -1,0 +1,7 @@
+version: "1.0.0"
+license: "MIT"
+description: Generic object detection model for ESP-DL
+url: https://github.com/hemanth/ESP32-Autonomous-Sentinel
+dependencies: 
+  espressif/esp-dl:
+    version: "~3.2.0"

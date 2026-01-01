@@ -1,0 +1,49 @@
+# ESP-IDF build artifacts
+build/
+sdkconfig
+sdkconfig.old
+*.pyc
+__pycache__/
+
+# Dependencies
+dependencies.lock
+managed_components/
+
+# Credentials (IMPORTANT: Never commit these!)
+main/config/credentials.hpp
+
+# IDE/Editor files
+.vscode/
+.clangd
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Python virtual environment
+venv/
+.venv/
+
+# Logs
+*.log
+
+# Backup files
+*.bak
+*.backup
+*_backup.*
+
+# Model files (optional, comment out if you want to track them)
+# components/detect/models/**/*.espdl
+
+# SD card test files
+sdcard_test/
+
+# Certificate files
+*.pem
+*.crt
+*.key
+
+# Temporary files
+*.tmp
+temp/

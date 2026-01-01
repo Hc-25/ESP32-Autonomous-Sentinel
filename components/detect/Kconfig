@@ -1,0 +1,47 @@
+menu "models: detect"
+    config FLASH_DETECT_PICO_S8_V1
+        bool "flash detect_pico_s8_v1"
+        depends on !DETECT_MODEL_IN_SDCARD
+        default y
+
+    choice
+        prompt "default model"
+        default DETECT_PICO_S8_V1
+        help
+            default detect model
+        config DETECT_PICO_S8_V1
+            bool "detect_pico_s8_v1"
+            depends on DETECT_MODEL_IN_SDCARD || FLASH_DETECT_PICO_S8_V1
+    endchoice
+
+    config DEFAULT_DETECT_MODEL
+        int
+        default 0 if DETECT_PICO_S8_V1
+
+    choice
+        prompt "model location"
+        default DETECT_MODEL_IN_FLASH_RODATA
+        help
+            detect model location
+        config DETECT_MODEL_IN_FLASH_RODATA
+            bool "flash_rodata"
+        config DETECT_MODEL_IN_FLASH_PARTITION
+            bool "flash_partition"
+        config DETECT_MODEL_IN_SDCARD
+            bool "sdcard"
+    endchoice
+
+    config DETECT_MODEL_LOCATION
+        int
+        default 0 if DETECT_MODEL_IN_FLASH_RODATA
+        default 1 if DETECT_MODEL_IN_FLASH_PARTITION
+        default 2 if DETECT_MODEL_IN_SDCARD
+
+    config DETECT_MODEL_SDCARD_DIR
+        string "detect model sdcard dir"
+        default "models/s3" if IDF_TARGET_ESP32S3
+        default "models/p4" if IDF_TARGET_ESP32P4
+        depends on DETECT_MODEL_IN_SDCARD
+        help
+            Directory of models relative to sdcard mount point.
+endmenu

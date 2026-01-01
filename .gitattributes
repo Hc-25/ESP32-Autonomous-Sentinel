@@ -1,0 +1,55 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# C/C++ sources
+*.c text
+*.cpp text
+*.h text
+*.hpp text
+
+# ESP-IDF specific
+*.ld text
+*.mk text
+Makefile text
+sdkconfig text
+CMakeLists.txt text
+
+# Documentation
+*.md text
+*.txt text
+
+# Configuration files
+*.yml text
+*.yaml text
+*.json text
+*.csv text
+
+# Python
+*.py text
+
+# Shell scripts
+*.sh text eol=lf
+
+# Binaries
+*.bin binary
+*.espdl binary
+*.a binary
+*.so binary
+*.elf binary
+
+# Archives
+*.zip binary
+*.tar binary
+*.gz binary
+
+# Images
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.ico binary
+
+# Certificates
+*.pem binary
+*.crt binary
+*.key binary
